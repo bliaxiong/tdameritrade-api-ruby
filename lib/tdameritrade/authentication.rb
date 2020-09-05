@@ -22,7 +22,7 @@ module TDAmeritrade
         body: params
       )
 
-      if response.status == 200
+      if response.code == 200
         @access_token = response["access_token"]
         @refresh_token = response["refresh_token"]
       end
