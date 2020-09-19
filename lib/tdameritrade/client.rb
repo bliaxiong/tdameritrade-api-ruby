@@ -3,6 +3,7 @@ require 'tdameritrade/client'
 require 'tdameritrade/error'
 require 'tdameritrade/version'
 require 'tdameritrade/operations/create_watchlist'
+require 'tdameritrade/operations/get_account'
 require 'tdameritrade/operations/get_accounts'
 require 'tdameritrade/operations/get_instrument_fundamentals'
 require 'tdameritrade/operations/get_price_history'
@@ -10,6 +11,7 @@ require 'tdameritrade/operations/get_quotes'
 require 'tdameritrade/operations/get_watchlists'
 require 'tdameritrade/operations/replace_watchlist'
 require 'tdameritrade/operations/update_watchlist'
+require 'tdameritrade/operations/get_orders'
 
 module TDAmeritrade
   class Client
@@ -25,6 +27,14 @@ module TDAmeritrade
 
     def get_accounts
       Operations::GetAccounts.new(self).call
+    end
+
+    def get_account(account_id)
+      Operations::GetAccount.new(self).call(account_id)
+    end
+
+    def get_orders(account_id = nil)
+      Operations::GetOrders.new(self).call(account_id)
     end
 
     def get_instrument_fundamentals(symbol)
