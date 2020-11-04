@@ -8,6 +8,7 @@ require 'tdameritrade/operations/get_accounts'
 require 'tdameritrade/operations/get_instrument_fundamentals'
 require 'tdameritrade/operations/get_price_history'
 require 'tdameritrade/operations/get_quotes'
+require 'tdameritrade/operations/get_transactions'
 require 'tdameritrade/operations/get_watchlists'
 require 'tdameritrade/operations/replace_watchlist'
 require 'tdameritrade/operations/update_watchlist'
@@ -35,6 +36,10 @@ module TDAmeritrade
 
     def get_orders(account_id = nil)
       Operations::GetOrders.new(self).call(account_id)
+    end
+
+    def get_transactions(account_id)
+      Operations::GetTransactions.new(self).call(account_id)
     end
 
     def get_instrument_fundamentals(symbol)
