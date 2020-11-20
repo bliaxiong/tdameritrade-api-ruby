@@ -6,6 +6,7 @@ require 'tdameritrade/operations/create_watchlist'
 require 'tdameritrade/operations/get_account'
 require 'tdameritrade/operations/get_accounts'
 require 'tdameritrade/operations/get_instrument_fundamentals'
+require 'tdameritrade/operations/get_option_chain'
 require 'tdameritrade/operations/get_price_history'
 require 'tdameritrade/operations/get_quotes'
 require 'tdameritrade/operations/get_transactions'
@@ -44,6 +45,10 @@ module TDAmeritrade
 
     def get_instrument_fundamentals(symbol)
       Operations::GetInstrumentFundamentals.new(self).call(symbol)
+    end
+
+    def get_option_chain(symbol, **options)
+      Operations::GetOptionChain.new(self).call(symbol, options)
     end
 
     def get_price_history(symbol, **options)
