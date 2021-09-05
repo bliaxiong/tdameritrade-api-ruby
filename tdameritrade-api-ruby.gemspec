@@ -21,9 +21,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "bundler", "~> 2.0"
   spec.add_dependency "rake"
   spec.add_dependency "hashie"
-  spec.add_dependency "httparty", "~> 0.13"
+  spec.add_dependency "httparty", "~> 0.18"
   spec.add_dependency "activesupport", "~> 6.1.4"
-  spec.add_dependency "nokogiri", "~> 1.6"
+  spec.add_dependency "nokogiri", "~> 1.12"
 
   spec.add_development_dependency "clipboard"
   spec.add_development_dependency "httplog"
